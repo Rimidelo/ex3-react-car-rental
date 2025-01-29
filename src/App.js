@@ -6,7 +6,8 @@ import CarList from "./components/CarList";
 import CarDetails from "./components/CarDetails";
 import Footer from "./components/Footer";
 import { Box, Container, Grid } from "@mui/material";
-import "./src/style/app.css";
+import "./style/app.css";
+
 
 function App() {
   const [cars, setCars] = useState([]);
