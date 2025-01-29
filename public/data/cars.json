@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Koenigsegg",
+        "type": "Sport",
+        "capacity": 2,
+        "fuel": "90L",
+        "transmission": "Manual",
+        "pricePerDay": 99,
+        "image": "/images/koenigsegg.png",
+        "favorite": false
+    },
+    {
+        "id": 2,
+        "name": "Nissan GT - R",
+        "type": "Sport",
+        "capacity": 2,
+        "fuel": "80L",
+        "transmission": "Manual",
+        "pricePerDay": 82,
+        "image": "/images/nissangtr.png",
+        "favorite": false
+    },
+    {
+        "id": 3,
+        "name": "Rolls-Royce",
+        "type": "Sport",
+        "capacity": 4,
+        "fuel": "70L",
+        "transmission": "Manual",
+        "pricePerDay": 96,
+        "image": "/images/rollsroyce.png",
+        "favorite": false
+    },
+    {
+        "id": 4,
+        "name": "All New Rush",
+        "type": "SUV",
+        "capacity": 6,
+        "fuel": "70L",
+        "transmission": "Manual",
+        "pricePerDay": 76,
+        "image": "/images/allnewrush.png",
+        "favorite": false
+    },
+    {
+        "id": 5,
+        "name": "CR - V",
+        "type": "SUV",
+        "capacity": 6,
+        "fuel": "80L",
+        "transmission": "Manual",
+        "pricePerDay": 80,
+        "image": "/images/cr-v.png",
+        "favorite": false
+    },
+    {
+        "id": 6,
+        "name": "All New Terios",
+        "type": "SUV",
+        "capacity": 6,
+        "fuel": "90L",
+        "transmission": "Manual",
+        "pricePerDay": 74,
+        "image": "/images/allnewterlos.png",
+        "favorite": false
+    },
+    {
+        "id": 7,
+        "name": "MG ZX Exclusive",
+        "type": "Hatchback",
+        "capacity": 6,
+        "fuel": "70L",
+        "transmission": "Electric",
+        "pricePerDay": 76,
+        "image": "/images/mgzxexclusive.png",
+        "favorite": false
+    },
+    {
+        "id": 8,
+        "name": "New MG ZS",
+        "type": "SUV",
+        "capacity": 6,
+        "fuel": "80L",
+        "transmission": "Manual",
+        "pricePerDay": 80,
+        "image": "/images/newmgzs.png",
+        "favorite": false
+    },
+    {
+        "id": 9,
+        "name": "MG ZX Excite",
+        "type": "Hatchback",
+        "capacity": 6,
+        "fuel": "90L",
+        "transmission": "Electric",
+        "pricePerDay": 74,
+        "image": "/images/mgzxexcite.png",
+        "favorite": false
+    },
+    {
+        "id": 10,
+        "name": "Koenigsegg",
+        "type": "Sport",
+        "capacity": 2,
+        "fuel": "90L",
+        "transmission": "Manual",
+        "pricePerDay": 99,
+        "image": "/images/koenigsegg.png",
+        "favorite": false
+    },
+    {
+        "id": 11,
+        "name": "Nissan GT - R",
+        "type": "Sport",
+        "capacity": 2,
+        "fuel": "80L",
+        "transmission": "Manual",
+        "pricePerDay": 82,
+        "image": "/images/nissangtr.png",
+        "favorite": false
+    },
+    {
+        "id": 12,
+        "name": "Rolls-Royce",
+        "type": "Sport",
+        "capacity": 4,
+        "fuel": "70L",
+        "transmission": "Manual",
+        "pricePerDay": 96,
+        "image": "/images/rollsroyce.png",
+        "favorite": false
+    }
+]
