@@ -7,7 +7,7 @@
         "fuel": "90L",
         "transmission": "Manual",
         "pricePerDay": 99,
-        "image": "/images/koenigsegg.png",
+        "image": "/images/koenisgsegg.png",
         "favorite": false
     },
     {
@@ -106,7 +106,7 @@
         "fuel": "90L",
         "transmission": "Manual",
         "pricePerDay": 99,
-        "image": "/images/koenigsegg.png",
+        "image": "/images/koenisgsegg.png",
         "favorite": false
     },
     {
