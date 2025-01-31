@@ -1,65 +1,105 @@
-import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, TextField, InputAdornment, IconButton} from "@mui/material";
-import { FavoriteBorder, Favorite, Search } from "@mui/icons-material";
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  TextField,
+  InputAdornment,
+  IconButton,
+  Box,
+} from "@mui/material";
+import { SearchRounded, Favorite } from "@mui/icons-material";
 
 const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-    onSearch(value.length >= 2 ? value : ""); // Only search if 2+ chars
-  };
-
   return (
-    <AppBar position="static" sx={{ background: "white", boxShadow: 1, padding: "10px 40px" }}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        width: "100%",
+        height: "124px",
+        background: "#FFFFFF",
+        borderBottom: "1px solid rgba(195, 212, 233, 0.4)",
+        boxShadow: "none",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Toolbar
+        sx={{
+          width: "1440px",
+          margin: "auto",
+          display: "flex",
+          alignItems: "center",
+          gap: "126px", // ✅ Ensures the search bar is 126px from the logo
+          justifyContent: "flex-start", // ✅ Aligns items to the left naturally
+        }}
+      >
         {/* Logo */}
         <Typography
-          variant="h6"
-          color="primary"
-          sx={{ cursor: "pointer", fontWeight: "bold" }}
-          onClick={() => window.location.reload()}
+          variant="h5"
+          sx={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: "700",
+            color: "#3563E9",
+            fontSize: "32px",
+            letterSpacing: "-0.03em",
+          }}
         >
           ShenCarCar
         </Typography>
 
-        {/* Search Bar */}
+        {/* Search Bar (Placed 126px from the Logo) */}
         <TextField
           variant="outlined"
           placeholder="Search by car name"
           size="small"
-          value={searchQuery}
-          onChange={handleSearch}
+          onChange={(e) => onSearch(e.target.value)}
           sx={{
-            width: "40%",
-            borderRadius: "25px",
-            backgroundColor: "#f5f5f5",
+            width: "492px",
+            height: "44px",
+            backgroundColor: "#FFFFFF",
+            borderRadius: "70px",
+            border: "1px solid rgba(195, 212, 233, 0.4)",
             "& .MuiOutlinedInput-root": {
-              borderRadius: "25px",
+              borderRadius: "70px",
               paddingLeft: "10px",
+              height: "44px",
             },
           }}
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Search sx={{ color: "gray" }} />
+            endAdornment: (
+              <InputAdornment position="end">
+                <SearchRounded sx={{ color: "#596780" }} />
               </InputAdornment>
             ),
           }}
         />
 
-        {/* Favorites Button (with Circular Background) */}
+        {/* Spacer Box to Push Favorite Button to the Right */}
+        <Box sx={{ flexGrow: 1 }} />
+
+        {/* Favorite Button (Aligned to the Right) */}
         <IconButton
-          onClick={toggleFavorites} 
+          onClick={toggleFavorites}
           sx={{
-            backgroundColor: "#f0f0f0",
-            borderRadius: "50%",
-            padding: "10px",
-            "&:hover": { backgroundColor: "#e0e0e0" },
+            width: "44px",
+            height: "44px",
+            borderRadius: "90px",
+            backgroundColor: "#FFFFFF",
+            border: "1px solid rgba(195, 212, 233, 0.4)",
+            opacity: 0.8,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            "&:hover": { backgroundColor: "#E0E0E0" },
           }}
         >
-          {showFavorites ? <Favorite color="error" /> : <FavoriteBorder />}
+          {showFavorites ? (
+            <Favorite sx={{ color: "#ED3F3F", fontSize: "24px" }} />
+          ) : (
+            <Favorite sx={{ color: "#596780", fontSize: "24px" }} />
+          )}
         </IconButton>
       </Toolbar>
     </AppBar>

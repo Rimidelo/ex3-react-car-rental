@@ -1,5 +1,11 @@
 import React from "react";
-import { Box, Typography, FormControlLabel, Checkbox, Slider } from "@mui/material";
+import {
+  Box,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+  Slider,
+} from "@mui/material";
 
 const Filters = ({ filters, setFilters }) => {
   const handleCheckboxChange = (category, value) => {
@@ -18,18 +24,21 @@ const Filters = ({ filters, setFilters }) => {
   return (
     <Box
       sx={{
-        width: 250,
+        width: "250px", // ✅ Fixed width
         height: "100vh",
         padding: 3,
-        backgroundColor: "#f8f9fa",
-        position: "fixed",
-        left: 0, // Align with screen edge
-        top: 64, // Offset below header
+        backgroundColor: "#ffffff",
+        position: "fixed", // ✅ Fix to the left
+        left: 0,
+        top: 64, // ✅ Ensure it's below the header
         boxShadow: "2px 0px 5px rgba(0, 0, 0, 0.1)",
+        borderRadius: "8px",
       }}
     >
       {/* Car Type Filter */}
-      <Typography variant="subtitle1" fontWeight="bold">TYPE</Typography>
+      <Typography variant="subtitle1" fontWeight="bold">
+        TYPE
+      </Typography>
       {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map((type) => (
         <FormControlLabel
           key={type}
@@ -44,7 +53,9 @@ const Filters = ({ filters, setFilters }) => {
       ))}
 
       {/* Capacity Filter */}
-      <Typography variant="subtitle1" fontWeight="bold" sx={{ mt: 2 }}>CAPACITY</Typography>
+      <Typography variant="subtitle1" fontWeight="bold" sx={{ mt: 2 }}>
+        CAPACITY
+      </Typography>
       {[2, 4, 6].map((capacity) => (
         <FormControlLabel
           key={capacity}
@@ -59,7 +70,9 @@ const Filters = ({ filters, setFilters }) => {
       ))}
 
       {/* Price Range Slider */}
-      <Typography variant="subtitle1" fontWeight="bold" sx={{ mt: 2 }}>PRICE (PER DAY)</Typography>
+      <Typography variant="subtitle1" fontWeight="bold" sx={{ mt: 2 }}>
+        PRICE (PER DAY)
+      </Typography>
       <Slider
         value={filters.price}
         onChange={handlePriceChange}

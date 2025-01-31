@@ -1,9 +1,15 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2"; // ✅ Use Grid2
+import Grid from "@mui/material/Grid2";
 import CarCard from "./CarCard";
 
-const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) => {
+const CarList = ({
+  cars,
+  filters,
+  searchQuery,
+  showFavorites,
+  toggleFavorite,
+}) => {
   // Filter the cars based on search, favorites, and filter selections
   const filteredCars = cars.filter((car) => {
     if (showFavorites && !car.favorite) return false;
@@ -14,7 +20,8 @@ const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) 
 
     return (
       (filters.type.length === 0 || filters.type.includes(car.type)) &&
-      (filters.capacity.length === 0 || filters.capacity.includes(car.capacity)) &&
+      (filters.capacity.length === 0 ||
+        filters.capacity.includes(car.capacity)) &&
       car.pricePerDay <= filters.price
     );
   });
@@ -25,14 +32,13 @@ const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) 
       <Typography variant="h6" sx={{ mb: 2 }}>
         Showing {filteredCars.length} cars
       </Typography>
-
-      <Grid2 container spacing={3}>
+      <Grid container spacing={3}>
         {filteredCars.map((car) => (
-          <Grid2 xs={12} sm={6} md={4} key={car.id}> {/* ✅ Use Grid2 */}
+          <Grid xs={12} sm={6} md={4} key={car.id}>
             <CarCard car={car} toggleFavorite={toggleFavorite} />
-          </Grid2>
+          </Grid>
         ))}
-      </Grid2>
+      </Grid>
     </Box>
   );
 };
