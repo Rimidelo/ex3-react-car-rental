@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, Typography, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2"; // ✅ Use Grid2
 import CarCard from "./CarCard";
 
 const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) => {
@@ -25,13 +26,13 @@ const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) 
         Showing {filteredCars.length} cars
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid2 container spacing={3}>
         {filteredCars.map((car) => (
-          <Grid item xs={12} sm={6} md={4} key={car.id}>
+          <Grid2 xs={12} sm={6} md={4} key={car.id}> {/* ✅ Use Grid2 */}
             <CarCard car={car} toggleFavorite={toggleFavorite} />
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </Box>
   );
 };

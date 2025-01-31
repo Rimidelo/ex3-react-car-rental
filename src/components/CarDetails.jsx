@@ -15,7 +15,7 @@ const CarDetails = ({ cars, toggleFavorite }) => {
   return (
     <Box sx={{ padding: "40px", maxWidth: "1100px", margin: "auto" }}>
       {/* Back Button */}
-      <Button 
+      <Button
         startIcon={<ArrowBack />} 
         onClick={() => navigate(-1)} 
         sx={{ mb: 3, textTransform: "none", fontSize: "16px" }}
@@ -77,9 +77,9 @@ const CarDetails = ({ cars, toggleFavorite }) => {
             <Typography variant="h5" fontWeight="bold">
               ${car.pricePerDay}.00 <Typography variant="caption" color="gray">/ days</Typography>
             </Typography>
-            <Button 
-              variant="contained" 
-              color="primary" 
+            <Button
+              variant="contained"
+              color="primary"
               sx={{ borderRadius: 2, fontSize: "18px", padding: "10px 30px" }}
             >
               Rent Now

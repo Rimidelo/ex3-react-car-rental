@@ -5,9 +5,9 @@ import Filters from "./components/Filters";
 import CarList from "./components/CarList";
 import CarDetails from "./components/CarDetails";
 import Footer from "./components/Footer";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2";
 import "./style/app.css";
-
 
 function App() {
   const [cars, setCars] = useState([]);
@@ -44,11 +44,11 @@ function App() {
           <Routes>
             {/* Home Page */}
             <Route path="/" element={
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={3}>
+              <Grid2 container spacing={3}> {/* ✅ Replace Grid with Grid2 */}
+                <Grid2 xs={12} md={3}> {/* ✅ Replace Grid item with Grid2 */}
                   <Filters filters={filters} setFilters={setFilters} />
-                </Grid>
-                <Grid item xs={12} md={9}>
+                </Grid2>
+                <Grid2 xs={12} md={9}> {/* ✅ Replace Grid item with Grid2 */}
                   <CarList
                     cars={cars}
                     filters={filters}
@@ -56,8 +56,8 @@ function App() {
                     showFavorites={showFavorites}
                     toggleFavorite={toggleFavorite}
                   />
-                </Grid>
-              </Grid>
+                </Grid2>
+              </Grid2>
             } />
 
             {/* Car Details Page (Pass toggleFavorite) */}

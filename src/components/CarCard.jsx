@@ -7,9 +7,9 @@ const CarCard = ({ car, toggleFavorite }) => {
   const navigate = useNavigate(); // Add navigation
 
   return (
-    <Card 
-      sx={{ 
-        borderRadius: 3, 
+    <Card
+      sx={{
+        borderRadius: 3,
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", 
         padding: 2,
         transition: "0.3s",
@@ -36,10 +36,10 @@ const CarCard = ({ car, toggleFavorite }) => {
         component="img"
         image={car.image}
         alt={car.name}
-        sx={{ 
-          height: 120, 
-          objectFit: "contain", 
-          display: "block", 
+        sx={{
+          height: 120,
+          objectFit: "contain",
+          display: "block",
           margin: "auto",
           cursor: "pointer"
         }}
