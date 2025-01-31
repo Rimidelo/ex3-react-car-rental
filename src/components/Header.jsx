@@ -31,8 +31,8 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
           margin: "auto",
           display: "flex",
           alignItems: "center",
-          gap: "126px", // ✅ Ensures the search bar is 126px from the logo
-          justifyContent: "flex-start", // ✅ Aligns items to the left naturally
+          gap: "126px",
+          justifyContent: "flex-start",
         }}
       >
         {/* Logo */}
@@ -49,7 +49,7 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
           ShenCarCar
         </Typography>
 
-        {/* Search Bar (Placed 126px from the Logo) */}
+        {/* Search Bar */}
         <TextField
           variant="outlined"
           placeholder="Search by car name"
@@ -75,11 +75,8 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
             ),
           }}
         />
-
-        {/* Spacer Box to Push Favorite Button to the Right */}
         <Box sx={{ flexGrow: 1 }} />
-
-        {/* Favorite Button (Aligned to the Right) */}
+        {/* Favorite Button*/}
         <IconButton
           onClick={toggleFavorites}
           sx={{
