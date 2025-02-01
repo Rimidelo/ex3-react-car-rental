@@ -37,7 +37,6 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
           flexWrap: "wrap",
         }}
       >
-        {/* Logo */}
         <Typography
           variant="h5"
           sx={{
@@ -45,7 +44,9 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
             color: "#3563E9",
             fontSize: "32px",
             letterSpacing: "-0.03em",
+            cursor: "pointer",
           }}
+          onClick={() => (window.location.href = "/")}
         >
           ShenCarCar
         </Typography>

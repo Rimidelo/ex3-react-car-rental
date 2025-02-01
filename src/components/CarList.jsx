@@ -25,13 +25,11 @@ const CarList = ({
 
   return (
     <Box sx={{ p: 4, flex: 1, backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
-      {/* Title row */}
-      {/* Title row */}
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 2, // Adds spacing between the title and the counter
+          gap: 2,
           mb: 4,
         }}
       >

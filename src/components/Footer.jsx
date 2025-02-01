@@ -49,6 +49,8 @@ const Footer = () => {
           pb: "60px",
           pl: "60px",
           pr: "60px",
+          borderTop: "1px solid rgba(195, 212, 233, 0.4)",
+          
         }}
       >
         <Grid container spacing={6} justifyContent="space-between">

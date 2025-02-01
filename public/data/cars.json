@@ -7,7 +7,18 @@
         "fuel": "90L",
         "transmission": "Manual",
         "pricePerDay": 99,
-        "image": "/images/koenisgsegg.png",
+        "image": "/images/koenigsegg/koenigsegg.png",
+        "additionalImages": [
+            "/images/koenigsegg/koenigsegg-interior.png",
+            "/images/koenigsegg/koenigsegg-seats.png"
+        ],
+        "descriptions": [
+            "The Koenigsegg is a marvel of speed and aerodynamics.",
+            "Designed for maximum performance and comfort.",
+            "A true hypercar experience with world-class engineering."
+        ],
+        "rating": 4.9,
+        "reviews": 320,
         "favorite": false
     },
     {
@@ -18,7 +29,18 @@
         "fuel": "80L",
         "transmission": "Manual",
         "pricePerDay": 82,
-        "image": "/images/nissangtr.png",
+        "image": "/images/nissangtr/nissangtr.png",
+        "additionalImages": [
+            "/images/nissangtr/nissangtr-interior.png",
+            "/images/nissangtr/nissangtr-road.png"
+        ],
+        "descriptions": [
+            "Sports car with the best design and acceleration.",
+            "Safety and comfort while driving a futuristic and elegant sports car.",
+            "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the race track."
+        ],
+        "rating": 4.8,
+        "reviews": 440,
         "favorite": false
     },
     {
@@ -29,7 +51,18 @@
         "fuel": "70L",
         "transmission": "Manual",
         "pricePerDay": 96,
-        "image": "/images/rollsroyce.png",
+        "image": "/images/rollsroyce/rollsroyce.png",
+        "additionalImages": [
+            "/images/rollsroyce/rollsroyce-interior.png",
+            "/images/rollsroyce/rollsroyce-road.png"
+        ],
+        "descriptions": [
+            "Rolls-Royce offers the ultimate in luxury and comfort.",
+            "Meticulously handcrafted with precision and care.",
+            "A car that redefines class and sophistication."
+        ],
+        "rating": 5.0,
+        "reviews": 210,
         "favorite": false
     },
     {
@@ -40,7 +73,18 @@
         "fuel": "70L",
         "transmission": "Manual",
         "pricePerDay": 76,
-        "image": "/images/allnewrush.png",
+        "image": "/images/allnewrush/allnewrush.png",
+        "additionalImages": [
+            "/images/allnewrush/allnewrush-interior.png",
+            "/images/allnewrush/allnewrush-road.png"
+        ],
+        "descriptions": [
+            "A family-friendly SUV with modern features.",
+            "Spacious interiors and powerful engine performance.",
+            "Perfect for long road trips with maximum comfort."
+        ],
+        "rating": 4.5,
+        "reviews": 350,
         "favorite": false
     },
     {
@@ -51,7 +95,18 @@
         "fuel": "80L",
         "transmission": "Manual",
         "pricePerDay": 80,
-        "image": "/images/cr-v.png",
+        "image": "/images/cr-v/cr-v.png",
+        "additionalImages": [
+            "/images/cr-v/cr-v-interior.png",
+            "/images/cr-v/cr-v-road.png"
+        ],
+        "descriptions": [
+            "The Honda CR-V is the perfect blend of power and efficiency.",
+            "Reliable, safe, and built for adventure.",
+            "The go-to choice for families and explorers."
+        ],
+        "rating": 4.6,
+        "reviews": 410,
         "favorite": false
     },
     {
@@ -62,7 +117,18 @@
         "fuel": "90L",
         "transmission": "Manual",
         "pricePerDay": 74,
-        "image": "/images/allnewterlos.png",
+        "image": "/images/allnewterios/allnewterios.png",
+        "additionalImages": [
+            "/images/allnewterios/allnewterios-interior.png",
+            "/images/allnewterios/allnewterios-road.png"
+        ],
+        "descriptions": [
+            "A stylish and powerful SUV for all your needs.",
+            "Designed for a smooth and fuel-efficient ride.",
+            "A versatile SUV perfect for urban and off-road adventures."
+        ],
+        "rating": 4.4,
+        "reviews": 290,
         "favorite": false
     },
     {
@@ -73,7 +139,18 @@
         "fuel": "70L",
         "transmission": "Electric",
         "pricePerDay": 76,
-        "image": "/images/mgzxexclusive.png",
+        "image": "/images/mgzxexclusive/mgzxexclusive.png",
+        "additionalImages": [
+            "/images/mgzxexclusive/mgzxexclusive-interior.png",
+            "/images/mgzxexclusive/mgzxexclusive-road.png"
+        ],
+        "descriptions": [
+            "An electric hatchback designed for the future.",
+            "Eco-friendly and powerful with modern tech features.",
+            "The perfect blend of efficiency and performance."
+        ],
+        "rating": 4.7,
+        "reviews": 380,
         "favorite": false
     },
     {
@@ -84,7 +161,18 @@
         "fuel": "80L",
         "transmission": "Manual",
         "pricePerDay": 80,
-        "image": "/images/newmgzs.png",
+        "image": "/images/newmgzs/newmgzs.png",
+        "additionalImages": [
+            "/images/newmgzs/newmgzs-interior.png",
+            "/images/newmgzs/newmgzs-road.png"
+        ],
+        "descriptions": [
+            "The MG ZS is the definition of smart and practical driving.",
+            "Equipped with cutting-edge safety features.",
+            "A sleek design with a modern and spacious interior."
+        ],
+        "rating": 4.3,
+        "reviews": 330,
         "favorite": false
     },
     {
@@ -95,40 +183,18 @@
         "fuel": "90L",
         "transmission": "Electric",
         "pricePerDay": 74,
-        "image": "/images/mgzxexcite.png",
-        "favorite": false
-    },
-    {
-        "id": 10,
-        "name": "Koenigsegg",
-        "type": "Sport",
-        "capacity": 2,
-        "fuel": "90L",
-        "transmission": "Manual",
-        "pricePerDay": 99,
-        "image": "/images/koenisgsegg.png",
-        "favorite": false
-    },
-    {
-        "id": 11,
-        "name": "Nissan GT - R",
-        "type": "Sport",
-        "capacity": 2,
-        "fuel": "80L",
-        "transmission": "Manual",
-        "pricePerDay": 82,
-        "image": "/images/nissangtr.png",
-        "favorite": false
-    },
-    {
-        "id": 12,
-        "name": "Rolls-Royce",
-        "type": "Sport",
-        "capacity": 4,
-        "fuel": "70L",
-        "transmission": "Manual",
-        "pricePerDay": 96,
-        "image": "/images/rollsroyce.png",
+        "image": "/images/mgzxexcite/mgzxexcite.png",
+        "additionalImages": [
+            "/images/mgzxexcite/mgzxexcite-interior.png",
+            "/images/mgzxexcite/mgzxexcite-road.png"
+        ],
+        "descriptions": [
+            "An exciting electric hatchback with premium features.",
+            "Eco-friendly without compromising on speed and power.",
+            "A dynamic driving experience with futuristic styling."
+        ],
+        "rating": 4.6,
+        "reviews": 250,
         "favorite": false
     }
 ]
