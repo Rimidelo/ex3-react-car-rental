@@ -3,38 +3,55 @@ import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import CarCard from "./CarCard";
 
-const CarList = ({
-  cars,
-  filters,
-  searchQuery,
-  showFavorites,
-  toggleFavorite,
-}) => {
-  // Filter the cars based on search, favorites, and filter selections
+const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) => {
   const filteredCars = cars.filter((car) => {
     if (showFavorites && !car.favorite) return false;
-
     if (searchQuery.length >= 2) {
       return car.name.toLowerCase().includes(searchQuery.toLowerCase());
     }
-
     return (
       (filters.type.length === 0 || filters.type.includes(car.type)) &&
-      (filters.capacity.length === 0 ||
-        filters.capacity.includes(car.capacity)) &&
+      (filters.capacity.length === 0 || filters.capacity.includes(car.capacity)) &&
       car.pricePerDay <= filters.price
     );
   });
 
   return (
-    <Box sx={{ padding: "32px", flex: 1 }}>
-      {/* Show number of displayed cars */}
-      <Typography variant="h6" sx={{ mb: 2 }}>
-        Showing {filteredCars.length} cars
-      </Typography>
+    <Box sx={{ p: 4, flex: 1, backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
+      {/* Title row */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: 4,
+        }}
+      >
+        <Typography
+          sx={{
+            fontWeight: 700,
+            fontSize: "20px",
+            lineHeight: "30px",
+            color: "#1A202C",
+          }}
+        >
+          Cars Catalogue
+        </Typography>
+        <Typography
+          sx={{
+            fontWeight: 500,
+            fontSize: "16px",
+            lineHeight: "24px",
+            color: "#90A3BF",
+          }}
+        >
+          {filteredCars.length} Cars
+        </Typography>
+      </Box>
+
       <Grid container spacing={3}>
         {filteredCars.map((car) => (
-          <Grid xs={12} sm={6} md={4} key={car.id}>
+          <Grid xs={12} sm={6} md={4} lg={3} key={car.id}>
             <CarCard car={car} toggleFavorite={toggleFavorite} />
           </Grid>
         ))}

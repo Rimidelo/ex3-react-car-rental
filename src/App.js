@@ -7,6 +7,7 @@ import CarList from "./components/CarList";
 import CarDetails from "./components/CarDetails";
 import Footer from "./components/Footer";
 import { Box, Container } from "@mui/material";
+import "./style/style.css";
 
 function App() {
   const [cars, setCars] = useState([]);
@@ -38,14 +39,9 @@ function App() {
           toggleFavorites={() => setShowFavorites(!showFavorites)}
         />
 
-        {/* Main content area */}
         <Box>
-          {/* Disable gutters + full width to remove default padding */}
           <Container disableGutters maxWidth={false} sx={{ display: "flex" }}>
-            {/* Sidebar */}
             <Filters filters={filters} setFilters={setFilters} />
-
-            {/* Car List */}
             <Box sx={{ width: "100%" }}>
               <Routes>
                 <Route
