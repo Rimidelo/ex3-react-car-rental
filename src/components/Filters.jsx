@@ -96,7 +96,7 @@ const Filters = ({ filters, setFilters, cars }) => {
     >
       {/* Car Type Filter */}
       <Typography variant="subtitle2" sx={filterLabelStyle}>
-        סוג המכונית
+        TYPE
       </Typography>
 
       <FormGroup
@@ -131,8 +131,8 @@ const Filters = ({ filters, setFilters, cars }) => {
       </FormGroup>
 
       {/* Capacity Filter */}
-      <Typography variant="subtitle2" sx={{ ...filterLabelStyle, mt: "28px" }}>
-        תכולה
+      <Typography variant="subtitle2" sx={{ ...filterLabelStyle, mt: "56px" }}>
+        CAPACITY
       </Typography>
 
       <FormGroup
@@ -169,7 +169,7 @@ const Filters = ({ filters, setFilters, cars }) => {
       </FormGroup>
 
       {/* Price Range Slider */}
-      <Typography variant="subtitle2" sx={filterLabelStyle}>
+      <Typography variant="subtitle2" sx={{ ...filterLabelStyle, mt: "56px" }}>
         PRICE (PER DAY)
       </Typography>
       <Slider
