@@ -12,10 +12,46 @@ import {
 import { FavoriteBorder, Favorite, Star } from "@mui/icons-material";
 import hexagonPattern from "../assets/hexagon.png";
 
+const commonCardStyle = {
+  boxSizing: "border-box",
+  borderRadius: "8px",
+};
+
+const titleStyle = {
+  fontSize: "32px",
+  fontWeight: 700,
+  lineHeight: "48px",
+  mb: 1,
+};
+
+const subtitleStyle = {
+  fontSize: "16px",
+  fontWeight: 500,
+  lineHeight: "24px",
+  color: "#FFFFFF",
+};
+
+const specKeyStyle = {
+  fontSize: "20px",
+  fontWeight: 400,
+  lineHeight: "30px",
+  letterSpacing: "-0.02em",
+  color: "#90A3BF",
+  textAlign: "left",
+};
+
+const specValueStyle = {
+  fontSize: "20px",
+  fontWeight: 600,
+  lineHeight: "30px",
+  letterSpacing: "-0.02em",
+  color: "#596780",
+  textAlign: "right",
+};
+
 const CarDetails = ({ cars, toggleFavorite }) => {
   const { id } = useParams();
   const car = cars.find((c) => c.id === parseInt(id));
-
   const [selectedImage, setSelectedImage] = useState(car?.image || "");
 
   if (!car) {
@@ -49,15 +85,14 @@ const CarDetails = ({ cars, toggleFavorite }) => {
       </Typography>
 
       <Stack direction={{ xs: "column", md: "row" }} spacing="32px">
-        {/* LEFT SECTION - Blue Box with Image */}
+        {/* LEFT SECTION - Blue Card with Image */}
         <Box sx={{ flex: 1 }}>
           <Card
             sx={{
-              boxSizing: "border-box", // Ensure padding is included in the width/height
+              ...commonCardStyle,
               width: "492px",
               height: "360px",
-              borderRadius: "8px",
-              p: 3, // p: 3 equals 24px if using the default theme
+              p: 3,
               backgroundColor: "#3563E9",
               backgroundImage: `url(${hexagonPattern})`,
               backgroundSize: "cover",
@@ -66,52 +101,35 @@ const CarDetails = ({ cars, toggleFavorite }) => {
               color: "white",
             }}
           >
-            <Typography
-              sx={{
-                fontSize: "32px",
-                fontWeight: 700,
-                lineHeight: "48px",
-                mb: 1,
-              }}
-            >
-              {car.descriptions[0]}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                color: "#FFFFFF",
-              }}
-            >
-              {car.descriptions[1]}
-            </Typography>
+            <Typography sx={titleStyle}>{car.descriptions[0]}</Typography>
+            <Typography sx={subtitleStyle}>{car.descriptions[1]}</Typography>
             <CardMedia
               component="img"
               image={selectedImage}
               alt={car.name}
               sx={{
                 width: "100%",
+                maxHeight: "120px",
                 objectFit: "contain",
                 mt: 2,
               }}
             />
           </Card>
 
+          {/* Thumbnails */}
           <Stack direction="row" sx={{ mt: 2, gap: "24px" }}>
             {[car.image, ...car.additionalImages].map((img, index) => (
               <Box
                 key={index}
                 sx={{
+                  ...commonCardStyle,
                   width: "148px",
                   height: "124px",
-                  borderRadius: "8px",
                   cursor: "pointer",
-                  overflow: "hidden", // hide any overflow
+                  overflow: "hidden",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  // For index 0, we have a blue background with a hexagon pattern
                   backgroundColor: index === 0 ? "#3563E9" : "transparent",
                   backgroundImage:
                     index === 0 ? `url(${hexagonPattern})` : "none",
@@ -143,11 +161,10 @@ const CarDetails = ({ cars, toggleFavorite }) => {
         {/* RIGHT SECTION - White Box with Details */}
         <Card
           sx={{
-            boxSizing: "border-box", // Include padding in overall dimensions
+            ...commonCardStyle,
             flex: 1,
             width: "492px",
             height: "508px",
-            borderRadius: "8px",
             p: "32px",
             display: "flex",
             flexDirection: "column",
@@ -223,32 +240,9 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   gap: "16px",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#90A3BF",
-                    textAlign: "left",
-                  }}
-                >
-                  Type Car
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#596780",
-                    textAlign: "right",
-                  }}
-                >
-                  {car.type}
-                </Typography>
+                <Typography sx={specKeyStyle}>Type Car</Typography>
+                <Typography sx={specValueStyle}>{car.type}</Typography>
               </Box>
-
               <Box
                 sx={{
                   display: "flex",
@@ -258,28 +252,8 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   gap: "16px",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#90A3BF",
-                    textAlign: "left",
-                  }}
-                >
-                  Capacity
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#596780",
-                    textAlign: "right",
-                  }}
-                >
+                <Typography sx={specKeyStyle}>Capacity</Typography>
+                <Typography sx={specValueStyle}>
                   {car.capacity} Person
                 </Typography>
               </Box>
@@ -294,32 +268,9 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   gap: "16px",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#90A3BF",
-                    textAlign: "left",
-                  }}
-                >
-                  Steering
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#596780",
-                    textAlign: "right",
-                  }}
-                >
-                  {car.transmission}
-                </Typography>
+                <Typography sx={specKeyStyle}>Steering</Typography>
+                <Typography sx={specValueStyle}>{car.transmission}</Typography>
               </Box>
-
               <Box
                 sx={{
                   display: "flex",
@@ -329,30 +280,8 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   gap: "16px",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 400,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#90A3BF",
-                    textAlign: "left",
-                  }}
-                >
-                  Gasoline
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    lineHeight: "30px",
-                    letterSpacing: "-0.02em",
-                    color: "#596780",
-                    textAlign: "right",
-                  }}
-                >
-                  {car.fuel}
-                </Typography>
+                <Typography sx={specKeyStyle}>Gasoline</Typography>
+                <Typography sx={specValueStyle}>{car.fuel}</Typography>
               </Box>
             </Stack>
           </Box>
