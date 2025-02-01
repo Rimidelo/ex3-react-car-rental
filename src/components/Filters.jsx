@@ -28,11 +28,6 @@ const Filters = ({ filters, setFilters }) => {
         width: "360px",
         padding: "32px",
         backgroundColor: "#ffffff",
-        position: "fixed",
-        left: "0",
-        top: "124px",
-        borderRadius: "8px",
-        height: "600px",
         gap: "0px",
       }}
     >
@@ -40,79 +35,91 @@ const Filters = ({ filters, setFilters }) => {
       <Typography
         variant="subtitle2"
         sx={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontWeight: "600",
           color: "#90A3BF",
           fontSize: "12px",
           lineHeight: "15.12px",
           letterSpacing: "-0.02em",
-          marginBottom: "28px", // Adds spacing below "TYPE"
+          marginBottom: "28px",
         }}
       >
         TYPE
       </Typography>
 
-      <FormGroup sx={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map((type) => (
-          <FormControlLabel
-            key={type}
-            control={
-              <Checkbox
-                checked={filters.type.includes(type)}
-                onChange={() => handleCheckboxChange("type", type)}
-                sx={{
-                  "&.Mui-checked": {
-                    color: "#3563E9",
-                  },
-                  padding: "6px",
-                }}
-              />
-            }
-            label={
-              <Typography
-                sx={{
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
-                  fontStyle: "normal",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  lineHeight: "30px",
-                  color: "#596780",
-                  marginLeft: "-8px",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {type} <span style={{ color: "#90A3BF" }}>(10)</span>
-              </Typography>
-            }
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              width: "100%",
-            }}
-          />
-        ))}
+      <FormGroup
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignSelf: "flex-start",
+        }}
+      >
+        {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map(
+          (type, index) => (
+            <FormControlLabel
+              key={type}
+              control={
+                <Checkbox
+                  checked={filters.type.includes(type)}
+                  onChange={() => handleCheckboxChange("type", type)}
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#3563E9",
+                    },
+                    padding: "4px",
+                  }}
+                />
+              }
+              label={
+                <Typography
+                  sx={{
+                    fontStyle: "normal",
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    lineHeight: "30px",
+                    color: "#596780",
+                    marginLeft: "-8px",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {type} <span style={{ color: "#90A3BF" }}>(10)</span>
+                </Typography>
+              }
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                width: "100%",
+                marginBottom: index === 5 ? 0 : "24px",
+              }}
+            />
+          )
+        )}
       </FormGroup>
 
       {/* Capacity Filter */}
       <Typography
         variant="subtitle2"
         sx={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontWeight: "600",
           color: "#90A3BF",
           fontSize: "12px",
           lineHeight: "15.12px",
           letterSpacing: "-0.02em",
-          marginTop: "28px", // Adds spacing above "CAPACITY"
-          marginBottom: "28px", // Adds spacing below "CAPACITY"
+          marginTop: "28px",
+          marginBottom: "28px",
         }}
       >
         CAPACITY
       </Typography>
 
-      <FormGroup sx={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        {[2, 4, 6].map((capacity) => (
+      <FormGroup
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignSelf: "flex-start",
+        }}
+      >
+        {[2, 4, 6].map((capacity, index) => (
           <FormControlLabel
             key={capacity}
             control={
@@ -123,19 +130,20 @@ const Filters = ({ filters, setFilters }) => {
                   "&.Mui-checked": {
                     color: "#3563E9",
                   },
-                  padding: "6px",
+                  padding: "4px",
                 }}
               />
             }
             label={
               <Typography
                 sx={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontStyle: "normal",
                   fontSize: "20px",
                   fontWeight: "600",
-                  lineHeight: "20px",
+                  lineHeight: "30px",
                   color: "#596780",
                   marginLeft: "-8px",
+                  letterSpacing: "-0.02em",
                 }}
               >
                 {capacity} Person <span style={{ color: "#90A3BF" }}>(10)</span>
@@ -146,6 +154,7 @@ const Filters = ({ filters, setFilters }) => {
               alignItems: "center",
               gap: "6px",
               width: "100%",
+              marginBottom: index === 2 ? 0 : "24px",
             }}
           />
         ))}
@@ -155,14 +164,13 @@ const Filters = ({ filters, setFilters }) => {
       <Typography
         variant="subtitle2"
         sx={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontWeight: "600",
           color: "#90A3BF",
           fontSize: "12px",
           lineHeight: "15.12px",
           letterSpacing: "-0.02em",
-          marginTop: "28px", // Adds spacing above "PRICE (PER DAY)"
-          marginBottom: "28px", // Adds spacing below "PRICE (PER DAY)"
+          marginTop: "28px",
+          marginBottom: "28px",
         }}
       >
         PRICE (PER DAY)
@@ -186,7 +194,6 @@ const Filters = ({ filters, setFilters }) => {
       />
       <Typography
         sx={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontWeight: "500",
           fontSize: "20px",
           color: "#596780",

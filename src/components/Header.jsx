@@ -13,7 +13,7 @@ import { SearchRounded, Favorite } from "@mui/icons-material";
 const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
   return (
     <AppBar
-      position="fixed"
+      position="relative"
       sx={{
         width: "100%",
         height: "124px",
@@ -23,23 +23,24 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 10,
       }}
     >
       <Toolbar
         sx={{
-          width: "1440px",
-          margin: "auto",
+          width: "100%",
+          maxWidth: "1440px",
+          margin: "0 auto",
           display: "flex",
           alignItems: "center",
-          gap: "126px",
-          justifyContent: "flex-start",
+          gap: { xs: 2, sm: 4, md: 8, lg: "126px" },
+          flexWrap: "wrap",
         }}
       >
         {/* Logo */}
         <Typography
           variant="h5"
           sx={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontWeight: "700",
             color: "#3563E9",
             fontSize: "32px",
@@ -56,11 +57,17 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
           size="small"
           onChange={(e) => onSearch(e.target.value)}
           sx={{
-            width: "492px",
+            width: {
+              xs: "100%",
+              sm: "350px",
+              md: "400px",
+              lg: "492px",
+            },
             height: "44px",
             backgroundColor: "#FFFFFF",
             borderRadius: "70px",
             border: "1px solid rgba(195, 212, 233, 0.4)",
+
             "& .MuiOutlinedInput-root": {
               borderRadius: "70px",
               paddingLeft: "10px",
@@ -76,7 +83,8 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
           }}
         />
         <Box sx={{ flexGrow: 1 }} />
-        {/* Favorite Button*/}
+
+        {/* Favorite Button */}
         <IconButton
           onClick={toggleFavorites}
           sx={{
@@ -89,6 +97,7 @@ const Header = ({ onSearch, showFavorites, toggleFavorites }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            mr: "30px", // margin-right
             "&:hover": { backgroundColor: "#E0E0E0" },
           }}
         >

@@ -27,7 +27,7 @@ const CarList = ({
   });
 
   return (
-    <Box sx={{ padding: "20px", flex: 1 }}>
+    <Box sx={{ padding: "32px", flex: 1 }}>
       {/* Show number of displayed cars */}
       <Typography variant="h6" sx={{ mb: 2 }}>
         Showing {filteredCars.length} cars
