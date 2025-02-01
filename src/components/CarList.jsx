@@ -3,7 +3,13 @@ import { Typography, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import CarCard from "./CarCard";
 
-const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) => {
+const CarList = ({
+  cars,
+  filters,
+  searchQuery,
+  showFavorites,
+  toggleFavorite,
+}) => {
   const filteredCars = cars.filter((car) => {
     if (showFavorites && !car.favorite) return false;
     if (searchQuery.length >= 2) {
@@ -11,7 +17,8 @@ const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) 
     }
     return (
       (filters.type.length === 0 || filters.type.includes(car.type)) &&
-      (filters.capacity.length === 0 || filters.capacity.includes(car.capacity)) &&
+      (filters.capacity.length === 0 ||
+        filters.capacity.includes(car.capacity)) &&
       car.pricePerDay <= filters.price
     );
   });
@@ -19,11 +26,12 @@ const CarList = ({ cars, filters, searchQuery, showFavorites, toggleFavorite }) 
   return (
     <Box sx={{ p: 4, flex: 1, backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
       {/* Title row */}
+      {/* Title row */}
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          gap: 2, // Adds spacing between the title and the counter
           mb: 4,
         }}
       >
