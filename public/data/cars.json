@@ -9,8 +9,8 @@
         "pricePerDay": 99,
         "image": "/images/koenigsegg/koenigsegg.png",
         "additionalImages": [
-            "/images/koenigsegg/koenigsegg-interior.png",
-            "/images/koenigsegg/koenigsegg-seats.png"
+            "/images/koenigsegg/koenigsegg-interior.jpeg",
+            "/images/koenigsegg/koenigsegg-seats.jpeg"
         ],
         "descriptions": [
             "The Koenigsegg is a marvel of speed and aerodynamics.",
@@ -53,8 +53,8 @@
         "pricePerDay": 96,
         "image": "/images/rollsroyce/rollsroyce.png",
         "additionalImages": [
-            "/images/rollsroyce/rollsroyce-interior.png",
-            "/images/rollsroyce/rollsroyce-road.png"
+            "/images/rollsroyce/rollsroyce-interior.jpeg",
+            "/images/rollsroyce/rollsroyce-road-seats.jpeg"
         ],
         "descriptions": [
             "Rolls-Royce offers the ultimate in luxury and comfort.",
@@ -75,8 +75,8 @@
         "pricePerDay": 76,
         "image": "/images/allnewrush/allnewrush.png",
         "additionalImages": [
-            "/images/allnewrush/allnewrush-interior.png",
-            "/images/allnewrush/allnewrush-road.png"
+            "/images/allnewrush/allnewrush-interior.jpeg",
+            "/images/allnewrush/allnewrush-seats.jpeg"
         ],
         "descriptions": [
             "A family-friendly SUV with modern features.",
@@ -97,8 +97,8 @@
         "pricePerDay": 80,
         "image": "/images/cr-v/cr-v.png",
         "additionalImages": [
-            "/images/cr-v/cr-v-interior.png",
-            "/images/cr-v/cr-v-road.png"
+            "/images/cr-v/cr-v-interior.jpeg",
+            "/images/cr-v/cr-v-seats.jpeg"
         ],
         "descriptions": [
             "The Honda CR-V is the perfect blend of power and efficiency.",
@@ -119,8 +119,8 @@
         "pricePerDay": 74,
         "image": "/images/allnewterios/allnewterios.png",
         "additionalImages": [
-            "/images/allnewterios/allnewterios-interior.png",
-            "/images/allnewterios/allnewterios-road.png"
+            "/images/allnewterios/allnewterios-interior.jpeg",
+            "/images/allnewterios/allnewterios-seats.jpeg"
         ],
         "descriptions": [
             "A stylish and powerful SUV for all your needs.",
@@ -141,8 +141,8 @@
         "pricePerDay": 76,
         "image": "/images/mgzxexclusive/mgzxexclusive.png",
         "additionalImages": [
-            "/images/mgzxexclusive/mgzxexclusive-interior.png",
-            "/images/mgzxexclusive/mgzxexclusive-road.png"
+            "/images/mgzxexclusive/mgzxexclusive-interior.jpeg",
+            "/images/mgzxexclusive/mgzxexclusive-seats.jpeg"
         ],
         "descriptions": [
             "An electric hatchback designed for the future.",
@@ -163,8 +163,8 @@
         "pricePerDay": 80,
         "image": "/images/newmgzs/newmgzs.png",
         "additionalImages": [
-            "/images/newmgzs/newmgzs-interior.png",
-            "/images/newmgzs/newmgzs-road.png"
+            "/images/newmgzs/newmgzs-interior.jpeg",
+            "/images/newmgzs/newmgzs-seats.jpeg"
         ],
         "descriptions": [
             "The MG ZS is the definition of smart and practical driving.",
@@ -185,8 +185,8 @@
         "pricePerDay": 74,
         "image": "/images/mgzxexcite/mgzxexcite.png",
         "additionalImages": [
-            "/images/mgzxexcite/mgzxexcite-interior.png",
-            "/images/mgzxexcite/mgzxexcite-road.png"
+            "/images/mgzxexcite/mgzxexcite-interior.jpeg",
+            "/images/mgzxexcite/mgzxexcite-road.jpeg"
         ],
         "descriptions": [
             "An exciting electric hatchback with premium features.",

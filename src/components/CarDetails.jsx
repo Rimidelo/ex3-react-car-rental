@@ -27,7 +27,14 @@ const CarDetails = ({ cars, toggleFavorite }) => {
   }
 
   return (
-    <Box sx={{ p: 4, flex: 1, backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        p: 4,
+        flex: 1,
+        backgroundColor: "#F6F7F9",
+        minHeight: "100vh",
+      }}
+    >
       {/* Page Title */}
       <Typography
         sx={{
@@ -42,14 +49,15 @@ const CarDetails = ({ cars, toggleFavorite }) => {
       </Typography>
 
       <Stack direction={{ xs: "column", md: "row" }} spacing="32px">
-        {/* Left Section - Blue Box with Image */}
+        {/* LEFT SECTION - Blue Box with Image */}
         <Box sx={{ flex: 1 }}>
           <Card
             sx={{
+              boxSizing: "border-box", // Ensure padding is included in the width/height
               width: "492px",
               height: "360px",
               borderRadius: "8px",
-              padding: 3,
+              p: 3, // p: 3 equals 24px if using the default theme
               backgroundColor: "#3563E9",
               backgroundImage: `url(${hexagonPattern})`,
               backgroundSize: "cover",
@@ -84,7 +92,6 @@ const CarDetails = ({ cars, toggleFavorite }) => {
               alt={car.name}
               sx={{
                 width: "100%",
-                height: "250px",
                 objectFit: "contain",
                 mt: 2,
               }}
@@ -100,9 +107,11 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   height: "124px",
                   borderRadius: "8px",
                   cursor: "pointer",
+                  overflow: "hidden", // hide any overflow
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  // For index 0, we have a blue background with a hexagon pattern
                   backgroundColor: index === 0 ? "#3563E9" : "transparent",
                   backgroundImage:
                     index === 0 ? `url(${hexagonPattern})` : "none",
@@ -122,8 +131,8 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   image={img}
                   sx={{
                     width: index === 0 ? "80%" : "100%",
-                    height: index === 0 ? "auto" : "100%", // Maintain aspect ratio
-                    objectFit: "contain",
+                    height: index === 0 ? "auto" : "100%",
+                    objectFit: index === 0 ? "contain" : "cover",
                   }}
                 />
               </Box>
@@ -131,14 +140,15 @@ const CarDetails = ({ cars, toggleFavorite }) => {
           </Stack>
         </Box>
 
-        {/* RIGHT SECTION - WHITE BOX */}
+        {/* RIGHT SECTION - White Box with Details */}
         <Card
           sx={{
+            boxSizing: "border-box", // Include padding in overall dimensions
             flex: 1,
             width: "492px",
             height: "508px",
             borderRadius: "8px",
-            padding: "32px",
+            p: "32px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -175,14 +185,14 @@ const CarDetails = ({ cars, toggleFavorite }) => {
               <Star key={i} sx={{ color: "#FFA500" }} />
             ))}
             {[...Array(5 - Math.floor(car.rating))].map((_, i) => (
-              <Star key={i} sx={{ color: "#E0E0E0" }} />
+              <Star key={i} sx={{ color: "#90A3BF" }} />
             ))}
             <Typography
               sx={{
                 fontSize: "14px",
                 fontWeight: 500,
                 lineHeight: "21px",
-                color: "#90A3BF",
+                color: "#596780",
               }}
             >
               {car.reviews} Reviewers
@@ -194,7 +204,7 @@ const CarDetails = ({ cars, toggleFavorite }) => {
               fontSize: "20px",
               fontWeight: 500,
               lineHeight: "40px",
-              color: "#90A3BF",
+              color: "#596780",
               mt: "32px",
             }}
           >
@@ -203,8 +213,6 @@ const CarDetails = ({ cars, toggleFavorite }) => {
 
           {/* Car Specs Table */}
           <Box sx={{ mt: "32px" }}>
-            {" "}
-            {/* Keeps spacing clear */}
             <Stack direction="row" spacing={5.5} sx={{ mb: 2 }}>
               <Box
                 sx={{
@@ -349,7 +357,7 @@ const CarDetails = ({ cars, toggleFavorite }) => {
             </Stack>
           </Box>
 
-          {/* Price & Rent Now Button - 80px below categories */}
+          {/* Price & Rent Now Button */}
           <Stack
             direction="row"
             justifyContent="space-between"
