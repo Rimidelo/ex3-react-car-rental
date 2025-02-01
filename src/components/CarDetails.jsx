@@ -121,7 +121,7 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   component="img"
                   image={img}
                   sx={{
-                    width: index === 0 ? "80%" : "100%", // Reduce car size for first thumbnail
+                    width: index === 0 ? "80%" : "100%",
                     height: index === 0 ? "auto" : "100%", // Maintain aspect ratio
                     objectFit: "contain",
                   }}

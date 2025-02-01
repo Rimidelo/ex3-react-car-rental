@@ -10,7 +10,12 @@ import "./style/style.css";
 
 function App() {
   const [cars, setCars] = useState([]);
-  const [filters, setFilters] = useState({ type: [], capacity: [], price: 100 });
+  const [filters, setFilters] = useState({
+    type: ["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"],
+    capacity: [2, 4, 6],
+    price: 100,
+  });
+
   const [searchQuery, setSearchQuery] = useState("");
   const [showFavorites, setShowFavorites] = useState(false);
 
@@ -40,7 +45,7 @@ function App() {
 
         <Box>
           <Container disableGutters maxWidth={false} sx={{ display: "flex" }}>
-            <Filters filters={filters} setFilters={setFilters} />
+            <Filters filters={filters} setFilters={setFilters} cars={cars} />
             <Box sx={{ width: "100%" }}>
               <Routes>
                 <Route

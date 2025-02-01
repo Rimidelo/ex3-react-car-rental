@@ -11,9 +11,12 @@ const CarList = ({
   toggleFavorite,
 }) => {
   const filteredCars = cars.filter((car) => {
-    if (showFavorites && !car.favorite) return false;
-    if (searchQuery.length >= 2) {
+    if (searchQuery.trim().length >= 2) {
       return car.name.toLowerCase().includes(searchQuery.toLowerCase());
+    }
+
+    if (showFavorites) {
+      return car.favorite;
     }
     return (
       (filters.type.length === 0 || filters.type.includes(car.type)) &&
