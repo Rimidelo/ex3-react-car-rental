@@ -36,14 +36,12 @@ function App() {
           showFavorites={showFavorites}
           toggleFavorites={() => setShowFavorites(!showFavorites)}
         />
-
-        {/* ✅ Added padding to prevent content from hiding under the fixed header */}
         <Box sx={{ paddingTop: "124px" }}>
           <Container sx={{ display: "flex", minHeight: "80vh" }}>
             {/* Fixed Sidebar */}
             <Filters filters={filters} setFilters={setFilters} />
 
-            {/* Car List (Adjusted for spacing) */}
+            {/* Car List*/}
             <Box sx={{ marginLeft: "280px", width: "100%" }}>
               <Routes>
                 <Route
