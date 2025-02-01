@@ -91,25 +91,24 @@ const CarDetails = ({ cars, toggleFavorite }) => {
             />
           </Card>
 
-          {/* Thumbnail Images - Click to Change Main Image */}
-          <Stack
-            direction="row"
-            sx={{
-              mt: "24px",
-              gap: "24px",
-              justifyContent: "space-between",
-            }}
-          >
+          <Stack direction="row" sx={{ mt: 2, gap: "24px" }}>
             {[car.image, ...car.additionalImages].map((img, index) => (
-              <CardMedia
+              <Box
                 key={index}
-                component="img"
-                image={img}
                 sx={{
                   width: "148px",
                   height: "124px",
                   borderRadius: "8px",
                   cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: index === 0 ? "#3563E9" : "transparent",
+                  backgroundImage:
+                    index === 0 ? `url(${hexagonPattern})` : "none",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "repeat",
                   border:
                     selectedImage === img
                       ? "2px solid #3563E9"
@@ -117,7 +116,17 @@ const CarDetails = ({ cars, toggleFavorite }) => {
                   "&:hover": { opacity: 0.7 },
                 }}
                 onClick={() => setSelectedImage(img)}
-              />
+              >
+                <CardMedia
+                  component="img"
+                  image={img}
+                  sx={{
+                    width: index === 0 ? "80%" : "100%", // Reduce car size for first thumbnail
+                    height: index === 0 ? "auto" : "100%", // Maintain aspect ratio
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
             ))}
           </Stack>
         </Box>
