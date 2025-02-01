@@ -10,11 +10,11 @@ const CarList = ({
   showFavorites,
   toggleFavorite,
 }) => {
+  const query = searchQuery.trim().toLowerCase();
   const filteredCars = cars.filter((car) => {
-    if (searchQuery.trim().length >= 2) {
-      return car.name.toLowerCase().includes(searchQuery.toLowerCase());
+    if (query.length >= 2) {
+      return car.name.toLowerCase().includes(query);
     }
-
     if (showFavorites) {
       return car.favorite;
     }
@@ -26,34 +26,39 @@ const CarList = ({
     );
   });
 
+  const headerStyles = {
+    container: {
+      display: "flex",
+      alignItems: "center",
+      gap: 2,
+      mb: 4,
+    },
+    title: {
+      fontWeight: 700,
+      fontSize: "20px",
+      lineHeight: "30px",
+      color: "#1A202C",
+    },
+    count: {
+      fontWeight: 500,
+      fontSize: "16px",
+      lineHeight: "24px",
+      color: "#90A3BF",
+    },
+  };
+
   return (
-    <Box sx={{ p: 4, flex: 1, backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
-          mb: 4,
-        }}
-      >
-        <Typography
-          sx={{
-            fontWeight: 700,
-            fontSize: "20px",
-            lineHeight: "30px",
-            color: "#1A202C",
-          }}
-        >
-          Cars Catalogue
-        </Typography>
-        <Typography
-          sx={{
-            fontWeight: 500,
-            fontSize: "16px",
-            lineHeight: "24px",
-            color: "#90A3BF",
-          }}
-        >
+    <Box
+      sx={{
+        p: 4,
+        flex: 1,
+        backgroundColor: "#F6F7F9",
+        minHeight: "100vh",
+      }}
+    >
+      <Box sx={headerStyles.container}>
+        <Typography sx={headerStyles.title}>Cars Catalogue</Typography>
+        <Typography sx={headerStyles.count}>
           {filteredCars.length} Cars
         </Typography>
       </Box>

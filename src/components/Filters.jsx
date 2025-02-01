@@ -8,18 +8,62 @@ import {
   FormGroup,
 } from "@mui/material";
 
+const filterLabelStyle = {
+  fontWeight: "600",
+  color: "#90A3BF",
+  fontSize: "12px",
+  lineHeight: "15.12px",
+  letterSpacing: "-0.02em",
+  mb: "28px",
+};
+
+const filterItemTextStyle = {
+  fontStyle: "normal",
+  fontSize: "20px",
+  fontWeight: "600",
+  lineHeight: "30px",
+  color: "#596780",
+  ml: "-8px",
+  letterSpacing: "-0.02em",
+};
+
+const checkboxStyle = {
+  "&.Mui-checked": { color: "#3563E9" },
+  padding: "4px",
+};
+
+const formControlLabelStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  width: "100%",
+};
+
+const sliderStyles = {
+  width: "296px",
+  height: "11px",
+  color: "#3563E9",
+  "& .MuiSlider-thumb": { backgroundColor: "#3563E9" },
+  "& .MuiSlider-rail": { backgroundColor: "#90A3BF" },
+};
+
+const maxTextStyle = {
+  fontWeight: "500",
+  fontSize: "20px",
+  color: "#596780",
+  lineHeight: "30px",
+  letterSpacing: "-0.02em",
+};
+
 const Filters = ({ filters, setFilters, cars }) => {
-  // Define your available filter options
   const typeOptions = ["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"];
   const capacityOptions = [2, 4, 6];
 
-  // Compute counts for each type based on the cars data
   const typeCounts = typeOptions.reduce((acc, type) => {
     acc[type] = cars.filter((car) => car.type === type).length;
     return acc;
   }, {});
 
-  // Compute counts for each capacity option based on the cars data
   const capacityCounts = capacityOptions.reduce((acc, capacity) => {
     acc[capacity] = cars.filter((car) => car.capacity === capacity).length;
     return acc;
@@ -28,10 +72,7 @@ const Filters = ({ filters, setFilters, cars }) => {
   const handleCheckboxChange = (category, value) => {
     setFilters((prev) => {
       const isSelected = prev[category].includes(value);
-      // Prevent unchecking if it's the only option left
-      if (isSelected && prev[category].length === 1) {
-        return prev;
-      }
+      if (isSelected && prev[category].length === 1) return prev;
       return {
         ...prev,
         [category]: isSelected
@@ -49,22 +90,12 @@ const Filters = ({ filters, setFilters, cars }) => {
     <Box
       sx={{
         width: "360px",
-        padding: "32px",
+        p: "32px",
         backgroundColor: "#ffffff",
       }}
     >
       {/* Car Type Filter */}
-      <Typography
-        variant="subtitle2"
-        sx={{
-          fontWeight: "600",
-          color: "#90A3BF",
-          fontSize: "12px",
-          lineHeight: "15.12px",
-          letterSpacing: "-0.02em",
-          marginBottom: "28px",
-        }}
-      >
+      <Typography variant="subtitle2" sx={filterLabelStyle}>
         סוג המכונית
       </Typography>
 
@@ -82,54 +113,25 @@ const Filters = ({ filters, setFilters, cars }) => {
               <Checkbox
                 checked={filters.type.includes(type)}
                 onChange={() => handleCheckboxChange("type", type)}
-                sx={{
-                  "&.Mui-checked": {
-                    color: "#3563E9",
-                  },
-                  padding: "4px",
-                }}
+                sx={checkboxStyle}
               />
             }
             label={
-              <Typography
-                sx={{
-                  fontStyle: "normal",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  lineHeight: "30px",
-                  color: "#596780",
-                  marginLeft: "-8px",
-                  letterSpacing: "-0.02em",
-                }}
-              >
+              <Typography sx={filterItemTextStyle}>
                 {type}{" "}
                 <span style={{ color: "#90A3BF" }}>({typeCounts[type]})</span>
               </Typography>
             }
             sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              width: "100%",
-              marginBottom: index === typeOptions.length - 1 ? 0 : "24px",
+              ...formControlLabelStyle,
+              mb: index === typeOptions.length - 1 ? 0 : "24px",
             }}
           />
         ))}
       </FormGroup>
 
       {/* Capacity Filter */}
-      <Typography
-        variant="subtitle2"
-        sx={{
-          fontWeight: "600",
-          color: "#90A3BF",
-          fontSize: "12px",
-          lineHeight: "15.12px",
-          letterSpacing: "-0.02em",
-          marginTop: "28px",
-          marginBottom: "28px",
-        }}
-      >
+      <Typography variant="subtitle2" sx={{ ...filterLabelStyle, mt: "28px" }}>
         תכולה
       </Typography>
 
@@ -147,26 +149,11 @@ const Filters = ({ filters, setFilters, cars }) => {
               <Checkbox
                 checked={filters.capacity.includes(capacity)}
                 onChange={() => handleCheckboxChange("capacity", capacity)}
-                sx={{
-                  "&.Mui-checked": {
-                    color: "#3563E9",
-                  },
-                  padding: "4px",
-                }}
+                sx={checkboxStyle}
               />
             }
             label={
-              <Typography
-                sx={{
-                  fontStyle: "normal",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  lineHeight: "30px",
-                  color: "#596780",
-                  marginLeft: "-8px",
-                  letterSpacing: "-0.02em",
-                }}
-              >
+              <Typography sx={filterItemTextStyle}>
                 {capacity} Person{" "}
                 <span style={{ color: "#90A3BF" }}>
                   ({capacityCounts[capacity]})
@@ -174,29 +161,15 @@ const Filters = ({ filters, setFilters, cars }) => {
               </Typography>
             }
             sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              width: "100%",
-              marginBottom: index === capacityOptions.length - 1 ? 0 : "24px",
+              ...formControlLabelStyle,
+              mb: index === capacityOptions.length - 1 ? 0 : "24px",
             }}
           />
         ))}
       </FormGroup>
 
       {/* Price Range Slider */}
-      <Typography
-        variant="subtitle2"
-        sx={{
-          fontWeight: "600",
-          color: "#90A3BF",
-          fontSize: "12px",
-          lineHeight: "15.12px",
-          letterSpacing: "-0.02em",
-          marginTop: "28px",
-          marginBottom: "28px",
-        }}
-      >
+      <Typography variant="subtitle2" sx={filterLabelStyle}>
         PRICE (PER DAY)
       </Typography>
       <Slider
@@ -204,29 +177,9 @@ const Filters = ({ filters, setFilters, cars }) => {
         onChange={handlePriceChange}
         min={50}
         max={100}
-        sx={{
-          width: "296px",
-          height: "11px",
-          color: "#3563E9",
-          "& .MuiSlider-thumb": {
-            backgroundColor: "#3563E9",
-          },
-          "& .MuiSlider-rail": {
-            backgroundColor: "#90A3BF",
-          },
-        }}
+        sx={sliderStyles}
       />
-      <Typography
-        sx={{
-          fontWeight: "500",
-          fontSize: "20px",
-          color: "#596780",
-          lineHeight: "30px",
-          letterSpacing: "-0.02em",
-        }}
-      >
-        Max: ${filters.price}.00
-      </Typography>
+      <Typography sx={maxTextStyle}>Max: ${filters.price}.00</Typography>
     </Box>
   );
 };

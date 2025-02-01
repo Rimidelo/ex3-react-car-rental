@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
-// Shared styles
 const labelStyle = {
   fontSize: "20px",
   fontWeight: 600,
@@ -12,7 +11,7 @@ const labelStyle = {
   textUnderlinePosition: "from-font",
   textDecorationSkipInk: "none",
   color: "#1A202C",
-   marginBottom: "24px"
+  mb: "24px",
 };
 
 const itemStyle = {
@@ -24,7 +23,7 @@ const itemStyle = {
   textUnderlinePosition: "from-font",
   textDecorationSkipInk: "none",
   color: "#13131399",
-  marginBottom: "20px"
+  mb: "20px",
 };
 
 const bottomTextStyle = {
@@ -38,6 +37,21 @@ const bottomTextStyle = {
   color: "#1A202C",
 };
 
+const linkGroups = [
+  {
+    title: "About",
+    links: ["How it works", "Featured", "Partnership", "Business Relation"],
+  },
+  {
+    title: "Community",
+    links: ["Events", "Blog", "Podcast", "Invite a friend"],
+  },
+  {
+    title: "Socials",
+    links: ["Discord", "Instagram", "Twitter", "Facebook"],
+  },
+];
+
 const Footer = () => {
   return (
     <Box sx={{ width: "100%", backgroundColor: "#FFFFFF" }}>
@@ -47,10 +61,8 @@ const Footer = () => {
           mx: "auto",
           pt: "80px",
           pb: "60px",
-          pl: "60px",
-          pr: "60px",
+          px: "60px",
           borderTop: "1px solid rgba(195, 212, 233, 0.4)",
-          
         }}
       >
         <Grid container spacing={6} justifyContent="space-between">
@@ -71,50 +83,21 @@ const Footer = () => {
               business.
             </Typography>
           </Grid>
-          <Grid item xs={6} md={2}>
-            <Typography sx={labelStyle}>About</Typography>
-            {[
-              "How it works",
-              "Featured",
-              "Partnership",
-              "Business Relation",
-            ].map((item) => (
-              <Link
-                key={item}
-                underline="none"
-                variant="body2"
-                sx={{ ...itemStyle, display: "block", mt: 1 }}
-              >
-                {item}
-              </Link>
-            ))}
-          </Grid>
-          <Grid item xs={6} md={2}>
-            <Typography sx={labelStyle}>Community</Typography>
-            {["Events", "Blog", "Podcast", "Invite a friend"].map((item) => (
-              <Link
-                key={item}
-                underline="none"
-                variant="body2"
-                sx={{ ...itemStyle, display: "block", mt: 1 }}
-              >
-                {item}
-              </Link>
-            ))}
-          </Grid>
-          <Grid item xs={6} md={2}>
-            <Typography sx={labelStyle}>Socials</Typography>
-            {["Discord", "Instagram", "Twitter", "Facebook"].map((item) => (
-              <Link
-                key={item}
-                underline="none"
-                variant="body2"
-                sx={{ ...itemStyle, display: "block", mt: 1 }}
-              >
-                {item}
-              </Link>
-            ))}
-          </Grid>
+          {linkGroups.map((group) => (
+            <Grid item xs={6} md={2} key={group.title}>
+              <Typography sx={labelStyle}>{group.title}</Typography>
+              {group.links.map((link) => (
+                <Link
+                  key={link}
+                  underline="none"
+                  variant="body2"
+                  sx={{ ...itemStyle, display: "block", mt: 1 }}
+                >
+                  {link}
+                </Link>
+              ))}
+            </Grid>
+          ))}
         </Grid>
         <Box
           sx={{
@@ -132,18 +115,10 @@ const Footer = () => {
             ©2025 ShenCarCar. All rights reserved
           </Typography>
           <Box sx={{ display: "flex", gap: 2 }}>
-            <Link
-              underline="none"
-              variant="body2"
-              sx={bottomTextStyle}
-            >
+            <Link underline="none" variant="body2" sx={bottomTextStyle}>
               Privacy & Policy
             </Link>
-            <Link
-              underline="none"
-              variant="body2"
-              sx={bottomTextStyle}
-            >
+            <Link underline="none" variant="body2" sx={bottomTextStyle}>
               Terms & Conditions
             </Link>
           </Box>

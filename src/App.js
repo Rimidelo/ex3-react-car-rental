@@ -8,22 +8,29 @@ import Footer from "./components/Footer";
 import { Box, Container } from "@mui/material";
 import "./style/style.css";
 
+const initialFilters = {
+  type: ["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"],
+  capacity: [2, 4, 6],
+  price: 100,
+};
+
 function App() {
   const [cars, setCars] = useState([]);
-  const [filters, setFilters] = useState({
-    type: ["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"],
-    capacity: [2, 4, 6],
-    price: 100,
-  });
-
+  const [filters, setFilters] = useState(initialFilters);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFavorites, setShowFavorites] = useState(false);
 
   useEffect(() => {
-    fetch("/data/cars.json")
-      .then((response) => response.json())
-      .then((data) => setCars(data))
-      .catch((error) => console.error("Error loading cars:", error));
+    const fetchCars = async () => {
+      try {
+        const response = await fetch("/data/cars.json");
+        const data = await response.json();
+        setCars(data);
+      } catch (error) {
+        console.error("Error loading cars:", error);
+      }
+    };
+    fetchCars();
   }, []);
 
   const toggleFavorite = (id) => {
@@ -34,42 +41,42 @@ function App() {
     );
   };
 
+  const handleToggleFavorites = () => {
+    setShowFavorites((prev) => !prev);
+  };
+
   return (
     <Router>
       <Box sx={{ backgroundColor: "#F6F7F9", minHeight: "100vh" }}>
         <Header
           onSearch={setSearchQuery}
           showFavorites={showFavorites}
-          toggleFavorites={() => setShowFavorites(!showFavorites)}
+          toggleFavorites={handleToggleFavorites}
         />
 
-        <Box>
-          <Container disableGutters maxWidth={false} sx={{ display: "flex" }}>
-            <Filters filters={filters} setFilters={setFilters} cars={cars} />
-            <Box sx={{ width: "100%" }}>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <CarList
-                      cars={cars}
-                      filters={filters}
-                      searchQuery={searchQuery}
-                      showFavorites={showFavorites}
-                      toggleFavorite={toggleFavorite}
-                    />
-                  }
-                />
-                <Route
-                  path="/car/:id"
-                  element={
-                    <CarDetails cars={cars} toggleFavorite={toggleFavorite} />
-                  }
-                />
-              </Routes>
-            </Box>
-          </Container>
-        </Box>
+        <Container disableGutters maxWidth={false} sx={{ display: "flex" }}>
+          <Filters filters={filters} setFilters={setFilters} cars={cars} />
+          <Box sx={{ width: "100%" }}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <CarList
+                    cars={cars}
+                    filters={filters}
+                    searchQuery={searchQuery}
+                    showFavorites={showFavorites}
+                    toggleFavorite={toggleFavorite}
+                  />
+                }
+              />
+              <Route
+                path="/car/:id"
+                element={<CarDetails cars={cars} toggleFavorite={toggleFavorite} />}
+              />
+            </Routes>
+          </Box>
+        </Container>
 
         <Footer />
       </Box>
