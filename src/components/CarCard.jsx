@@ -14,9 +14,9 @@ import {
   FavoriteBorder,
   Favorite,
   LocalGasStation,
-  SettingsInputComponent,
-  GroupsRounded,
+  PeopleAlt,
 } from "@mui/icons-material";
+import typeIcon from "../assets/icons/type.svg";
 
 const CarCard = ({ car, toggleFavorite }) => {
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ const CarCard = ({ car, toggleFavorite }) => {
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         p: 2,
         transition: "0.3s",
         "&:hover": {
@@ -56,7 +57,6 @@ const CarCard = ({ car, toggleFavorite }) => {
           >
             {car.name}
           </Typography>
-
           <Typography
             sx={{
               fontSize: "14px",
@@ -68,7 +68,6 @@ const CarCard = ({ car, toggleFavorite }) => {
             {car.type}
           </Typography>
         </Box>
-
         <IconButton onClick={() => toggleFavorite(car.id)}>
           {car.favorite ? (
             <Favorite sx={{ color: "#ED3F3F" }} />
@@ -93,13 +92,64 @@ const CarCard = ({ car, toggleFavorite }) => {
         onClick={() => navigate(`/car/${car.id}`)}
       />
 
+      <Stack
+        direction="row"
+        spacing={3}
+        alignItems="center"
+        justifyContent="space-around"
+        sx={{ mb: 2 }}
+      >
+        <Box display="flex" alignItems="center" sx={{ color: "#90A3BF" }}>
+          <LocalGasStation sx={{ fontSize: 24 }} />
+          <Typography
+            sx={{
+              fontSize: "14px",
+              fontWeight: 500,
+              lineHeight: "21px",
+              letterSpacing: "-0.02em",
+              color: "#90A3BF",
+            }}
+          >
+            {car.fuel}
+          </Typography>
+        </Box>
+
+        <Box display="flex" alignItems="center">
+          <img src={typeIcon} alt="Transmission" width="24px" height="24px" />
+          <Typography
+            sx={{
+              fontSize: "14px",
+              fontWeight: 500,
+              lineHeight: "21px",
+              letterSpacing: "-0.02em",
+              color: "#90A3BF",
+              ml: 0.5,
+            }}
+          >
+            {car.transmission}
+          </Typography>
+        </Box>
+
+        <Box display="flex" alignItems="center" sx={{ color: "#90A3BF" }}>
+          <PeopleAlt sx={{ fontSize: 24 }} />
+          <Typography
+            sx={{
+              fontSize: "14px",
+              fontWeight: 500,
+              lineHeight: "21px",
+              letterSpacing: "-0.02em",
+              color: "#90A3BF",
+              ml: 0.5,
+            }}
+          >
+            {car.capacity} People
+          </Typography>
+        </Box>
+      </Stack>
+
+      {/* Price & Rent Now Button */}
       <CardContent sx={{ p: 0 }}>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          mt={2}
-        >
+        <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography
             sx={{
               fontWeight: 700,

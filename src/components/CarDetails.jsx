@@ -14,7 +14,6 @@ const CarDetails = ({ cars, toggleFavorite }) => {
 
   return (
     <Box sx={{ padding: "40px", maxWidth: "1100px", margin: "auto" }}>
-      {/* Back Button */}
       <Button
         startIcon={<ArrowBack />} 
         onClick={() => navigate(-1)} 
@@ -24,7 +23,6 @@ const CarDetails = ({ cars, toggleFavorite }) => {
       </Button>
 
       <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
-        {/* LEFT SIDE: Car Image & Description */}
         <Box sx={{ flex: 1 }}>
           <Card sx={{ borderRadius: "12px", padding: 3, background: "#2A3EB1", color: "white" }}>
             <Typography variant="h5" fontWeight="bold">
@@ -41,7 +39,6 @@ const CarDetails = ({ cars, toggleFavorite }) => {
             />
           </Card>
 
-          {/* Smaller Preview Images */}
           <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
             <CardMedia component="img" image={car.image} sx={{ width: "80px", height: "80px", borderRadius: "8px", cursor: "pointer", border: "2px solid #2A3EB1" }} />
             <CardMedia component="img" image="/images/interior1.png" sx={{ width: "80px", height: "80px", borderRadius: "8px", cursor: "pointer" }} />
@@ -49,16 +46,14 @@ const CarDetails = ({ cars, toggleFavorite }) => {
           </Stack>
         </Box>
 
-        {/* RIGHT SIDE: Car Info */}
         <Card sx={{ flex: 1, borderRadius: "12px", padding: 3 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Typography variant="h4" fontWeight="bold">{car.name}</Typography>
-            <IconButton onClick={() => toggleFavorite(car.id)}>  {/* ✅ Fix Here */}
+            <IconButton onClick={() => toggleFavorite(car.id)}>
               {car.favorite ? <Favorite color="error" /> : <FavoriteBorder />}
             </IconButton>
           </Stack>
 
-          {/* Star Rating */}
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 1 }}>
             {[...Array(4)].map((_, i) => (
               <Star key={i} sx={{ color: "#FFA500" }} />
