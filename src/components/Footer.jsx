@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Box, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
@@ -47,15 +48,19 @@ const linkGroups = [
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const isCarList = location.pathname === "/";
   return (
     <Box
       sx={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        width: "100%",
         backgroundColor: "#FFFFFF",
         borderTop: "1px solid rgba(195, 212, 233, 0.4)",
+        ...(isCarList && {
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+        }),
       }}
     >
       <Box
