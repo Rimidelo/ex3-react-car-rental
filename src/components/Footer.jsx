@@ -8,8 +8,6 @@ const labelStyle = {
   lineHeight: "30px",
   letterSpacing: "-0.02em",
   textAlign: "left",
-  textUnderlinePosition: "from-font",
-  textDecorationSkipInk: "none",
   color: "#1A202C",
   mb: "24px",
 };
@@ -20,8 +18,6 @@ const itemStyle = {
   lineHeight: "24px",
   letterSpacing: "-0.02em",
   textAlign: "left",
-  textUnderlinePosition: "from-font",
-  textDecorationSkipInk: "none",
   color: "#13131399",
   mb: "20px",
 };
@@ -32,8 +28,6 @@ const bottomTextStyle = {
   lineHeight: "24px",
   letterSpacing: "-0.02em",
   textAlign: "left",
-  textUnderlinePosition: "from-font",
-  textDecorationSkipInk: "none",
   color: "#1A202C",
 };
 
@@ -54,7 +48,16 @@ const linkGroups = [
 
 const Footer = () => {
   return (
-    <Box sx={{ width: "100%", backgroundColor: "#FFFFFF" }}>
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        borderTop: "1px solid rgba(195, 212, 233, 0.4)",
+      }}
+    >
       <Box
         sx={{
           maxWidth: "1440px",
@@ -62,7 +65,6 @@ const Footer = () => {
           pt: "80px",
           pb: "60px",
           px: "60px",
-          borderTop: "1px solid rgba(195, 212, 233, 0.4)",
         }}
       >
         <Grid container spacing={6} justifyContent="space-between">
